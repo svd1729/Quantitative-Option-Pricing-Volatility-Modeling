@@ -142,3 +142,37 @@ For the selected option:
 6. Historical and implied volatility were compared.
 
 The results demonstrate that both Black-Scholes and Monte Carlo produce similar theoretical prices when supplied with the same volatility input, while differences from the observed market price arise from model assumptions and the use of historical rather than market-implied volatility.
+
+### 6. Volatility Smile Analysis
+
+To examine how market expectations of volatility vary across option strikes, implied
+volatility was calculated for SPY call and put options with a common expiration.
+
+#### 6.1 Methodology
+
+- Used real SPY option-chain data for a fixed expiration.
+- Calculated midpoint prices from quoted bid-ask spreads.
+- Estimated implied volatility for each strike using the Newton-Raphson method.
+- Incorporated the underlying spot price, risk-free rate, dividend yield, and time to maturity.
+- Calculated IV separately for both calls and puts.
+- Compared implied volatility across strikes to identify the volatility smile/skew.
+
+#### 6.2 Results
+<img width="1162" height="707" alt="image" src="https://github.com/user-attachments/assets/ad170a4f-0d8b-4842-abbe-75d25bf254b3" />
+
+
+The analysis showed that implied volatility is not constant across strikes, providing
+empirical evidence against the constant-volatility assumption of the Black-Scholes model.
+
+The resulting call and put IV curves exhibited a clear strike-dependent volatility
+structure, with higher implied volatility observed away from the region of minimum IV.
+
+The put curve also showed a more pronounced downside volatility skew, indicating that
+options at lower strikes were priced with comparatively higher implied volatility.
+
+#### 6.3 Key Insight
+
+The analysis demonstrates that a single volatility parameter cannot fully explain
+observed market option prices across different strikes. Instead, market-implied
+volatility varies with strike, motivating the use of volatility smiles/skews and,
+more generally, volatility surfaces in derivatives pricing.
